@@ -19,7 +19,9 @@ export class LoggerRateLimiterComponent implements OnInit {
     console.log('[10, "foo"]', this.shouldPrintMessage(10, 'foo'));
     console.log('[11, "foo"]', this.shouldPrintMessage(11, 'foo'));
   }
-
+  /***
+   * O(1) Time
+   * O(n) Space*/
   shouldPrintMessage(timestamp: any, message: any) {
     if(!this.contents[message] || timestamp >= this.contents[message]) {
       this.contents[message] = timestamp +10;
